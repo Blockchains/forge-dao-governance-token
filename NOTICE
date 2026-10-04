@@ -1,0 +1,80 @@
+NOTICE
+
+This project was composed by Blockchain Lab Forge (https://blockchainlab.com/forge) from the following open-source projects.
+Files are copied unmodified, with their original SPDX headers, under lib/<project>/.
+
+- foundry-rs/forge-std (via https://github.com/Blockchains/forge-std @ f3dae6e6ee381f25eb6a246f7da9b85c91a68219 (tag v1.17.0)) - licence: Apache-2.0 OR MIT
+    src/Base.sol
+    src/Script.sol
+    src/StdAssertions.sol
+    src/StdChains.sol
+    src/StdCheats.sol
+    src/StdConstants.sol
+    src/StdError.sol
+    src/StdInvariant.sol
+    src/StdJson.sol
+    src/StdMath.sol
+    src/StdStorage.sol
+    src/StdStyle.sol
+    src/StdToml.sol
+    src/StdUtils.sol
+    src/Test.sol
+    src/Vm.sol
+    src/console.sol
+    src/console2.sol
+    src/interfaces/IMulticall3.sol
+    src/safeconsole.sol
+
+- OpenZeppelin/openzeppelin-contracts (via https://github.com/Blockchains/openzeppelin-contracts @ cab19933c33c2ad1d4c7a84864a3601dddfd16f3 (tag v5.7.0)) - licence: MIT
+    contracts/access/AccessControl.sol
+    contracts/access/IAccessControl.sol
+    contracts/governance/Governor.sol
+    contracts/governance/IGovernor.sol
+    contracts/governance/TimelockController.sol
+    contracts/governance/extensions/GovernorCountingSimple.sol
+    contracts/governance/extensions/GovernorSettings.sol
+    contracts/governance/extensions/GovernorTimelockControl.sol
+    contracts/governance/extensions/GovernorVotes.sol
+    contracts/governance/extensions/GovernorVotesQuorumFraction.sol
+    contracts/governance/utils/IVotes.sol
+    contracts/governance/utils/Votes.sol
+    contracts/interfaces/IERC1271.sol
+    contracts/interfaces/IERC165.sol
+    contracts/interfaces/IERC5267.sol
+    contracts/interfaces/IERC5805.sol
+    contracts/interfaces/IERC6372.sol
+    contracts/interfaces/IERC7913.sol
+    contracts/interfaces/draft-IERC6093.sol
+    contracts/token/ERC1155/IERC1155Receiver.sol
+    contracts/token/ERC1155/utils/ERC1155Holder.sol
+    contracts/token/ERC20/ERC20.sol
+    contracts/token/ERC20/IERC20.sol
+    contracts/token/ERC20/extensions/ERC20Permit.sol
+    contracts/token/ERC20/extensions/ERC20Votes.sol
+    contracts/token/ERC20/extensions/IERC20Metadata.sol
+    contracts/token/ERC20/extensions/IERC20Permit.sol
+    contracts/token/ERC721/IERC721Receiver.sol
+    contracts/token/ERC721/utils/ERC721Holder.sol
+    contracts/utils/Address.sol
+    contracts/utils/Bytes.sol
+    contracts/utils/Context.sol
+    contracts/utils/ERC6372Utils.sol
+    contracts/utils/Errors.sol
+    contracts/utils/LowLevelCall.sol
+    contracts/utils/Nonces.sol
+    contracts/utils/Panic.sol
+    contracts/utils/ShortStrings.sol
+    contracts/utils/StorageSlot.sol
+    contracts/utils/Strings.sol
+    contracts/utils/cryptography/ECDSA.sol
+    contracts/utils/cryptography/EIP712.sol
+    contracts/utils/cryptography/MessageHashUtils.sol
+    contracts/utils/cryptography/SignatureChecker.sol
+    contracts/utils/introspection/ERC165.sol
+    contracts/utils/introspection/IERC165.sol
+    contracts/utils/math/Math.sol
+    contracts/utils/math/SafeCast.sol
+    contracts/utils/math/SignedMath.sol
+    contracts/utils/structs/Checkpoints.sol
+    contracts/utils/structs/DoubleEndedQueue.sol
+    contracts/utils/types/Time.sol
