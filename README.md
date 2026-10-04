@@ -51,3 +51,24 @@ Every copied file is unmodified and keeps its SPDX header; see [NOTICE](NOTICE).
 MIT for the generated glue. All copied components are permissively licensed.
 
 Not audited. Review before deploying with real value.
+
+Composed by [blockchainlab-compose](https://github.com/Blockchains/blockchainlab-compose), the engine behind [blockchainlab.com/forge](https://blockchainlab.com/forge). Contracts only, no hosted site.
+
+## Configuration
+
+`script/Deploy.s.sol` reads (deployer = broadcaster = admin):
+
+| Variable | Required | Default | Purpose |
+|---|---|---|---|
+| `INITIAL_SUPPLY` | no | 1,000,000e18 | Minted to the deployer |
+| `SUPPLY_CAP` | no | 10,000,000e18 | Hard cap |
+| `TIMELOCK_DELAY` | no | 2 days | TimelockController delay (seconds) |
+
+The **Deploy (Sepolia)** workflow needs `DEPLOYER_PRIVATE_KEY` and `SEPOLIA_RPC_URL` repository secrets and stops with a clear error without them.
+
+## Contributing
+
+Issues and pull requests are welcome. Please read the [contributing guide](https://github.com/Blockchains/.github/blob/main/CONTRIBUTING.md), [code of conduct](https://github.com/Blockchains/.github/blob/main/CODE_OF_CONDUCT.md) and [security policy](https://github.com/Blockchains/.github/blob/main/SECURITY.md) first.
+
+---
+Built by Blockchain Lab — [blockchainlab.com](https://blockchainlab.com/?utm_source=github&utm_medium=readme&utm_campaign=forge-dao-governance-token)
