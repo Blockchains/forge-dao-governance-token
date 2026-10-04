@@ -1,0 +1,25 @@
+# forge-dao-governance-token
+
+> Composed DAO governance kit: capped ERC-20 with EIP-2612 permit, ERC20Votes delegation and role-based minting (DaoGovernanceToken) plus an OpenZeppelin Governor with settings, simple counting, 4% quorum and a TimelockController (DaoGovernanceGovernor).
+
+## Docs
+
+- [README](https://raw.githubusercontent.com/Blockchains/forge-dao-governance-token/main/README.md): overview, install and the 'Use as a building block' section
+- [AGENTS.md](https://raw.githubusercontent.com/Blockchains/forge-dao-governance-token/main/AGENTS.md): setup, build/test commands, structure map, conventions and rules for AI coding agents
+- [blocks.json](https://raw.githubusercontent.com/Blockchains/forge-dao-governance-token/main/blocks.json): machine-readable building-block manifest (entrypoints, inputs, outputs, deps, compatible blocks)
+
+## Key files
+
+- [src/DaoGovernanceToken.sol](https://github.com/Blockchains/forge-dao-governance-token/blob/main/src/DaoGovernanceToken.sol): contract
+- [src/DaoGovernanceGovernor.sol](https://github.com/Blockchains/forge-dao-governance-token/blob/main/src/DaoGovernanceGovernor.sol): contract
+- [component-map.json](https://github.com/Blockchains/forge-dao-governance-token/blob/main/component-map.json): provenance
+- [NOTICE](https://github.com/Blockchains/forge-dao-governance-token/blob/main/NOTICE): attribution
+
+## Related
+
+- [Build with Blocks](https://github.com/Blockchains/.github/blob/main/docs/BUILD-WITH-BLOCKS.md): how to assemble projects from Blockchains repos
+- [Org llms.txt](https://blockchains.github.io/llms.txt) · [blocks catalogue](https://blockchains.github.io/blocks.json)
+- [Blockchains/blockchainlab-compose](https://github.com/Blockchains/blockchainlab-compose): the composer that generated this repo
+- [Blockchains/forge-usd-priced-membership-nft](https://github.com/Blockchains/forge-usd-priced-membership-nft): pair: members NFT + governance token
+- [Blockchains/blockchainlab-sdk](https://github.com/Blockchains/blockchainlab-sdk): front end data (chains, RPC health, sanctions screening)
+- [Blockchains/blockchainlab-labs](https://github.com/Blockchains/blockchainlab-labs): L15 Timelock lab explains the pattern

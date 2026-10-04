@@ -47,6 +47,50 @@ Or run the **Deploy (Sepolia)** workflow after adding `DEPLOYER_PRIVATE_KEY` and
 
 Every copied file is unmodified and keeps its SPDX header; see [NOTICE](NOTICE). Machine-readable: [`plan.json`](plan.json), [`component-map.json`](component-map.json).
 
+<!-- blocks:start -->
+## Use as a building block
+
+> **For AI agents and builders:** read [`AGENTS.md`](AGENTS.md) (setup, commands, structure, rules), [`llms.txt`](llms.txt) (doc map) and the machine-readable [`blocks.json`](blocks.json) ([schema](https://github.com/Blockchains/.github/blob/main/docs/BLOCKS-SCHEMA.md)). How all Blockchains blocks fit together: **[Build with Blocks](https://github.com/Blockchains/.github/blob/main/docs/BUILD-WITH-BLOCKS.md)** · org catalogue: [https://blockchains.github.io/blocks.json](https://blockchains.github.io/blocks.json).
+
+**What it exports**
+
+| Export | Type | Install / access |
+|---|---|---|
+| `DaoGovernanceToken` | solidity | `forge install Blockchains/forge-dao-governance-token` |
+| `DaoGovernanceGovernor` | solidity | `forge install Blockchains/forge-dao-governance-token` |
+| `script/Deploy.s.sol` | file | `forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --account <keystore> --broadcast` |
+| `component-map.json, plan.json` | file | `provenance: capability → component → pinned fork commit` |
+
+**Minimal example** (compiled and passed a deploy + delegate test on 2026-10-04 in a fresh Foundry project)
+
+```solidity
+// forge install Blockchains/forge-dao-governance-token Blockchains/openzeppelin-contracts@v5.7.0
+// remappings.txt: @openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/
+import {DaoGovernanceToken} from "forge-dao-governance-token/src/DaoGovernanceToken.sol";
+import {DaoGovernanceGovernor} from "forge-dao-governance-token/src/DaoGovernanceGovernor.sol";
+import {TimelockController} from "@openzeppelin/contracts/governance/TimelockController.sol";
+
+DaoGovernanceToken token = new DaoGovernanceToken(admin, 1_000_000e18, 10_000_000e18);
+TimelockController tl = new TimelockController(2 days, new address[](0), new address[](0), admin);
+DaoGovernanceGovernor gov = new DaoGovernanceGovernor(token, tl, 1 /* delay blocks */, 50400 /* period blocks */);
+token.delegate(admin);   // votes need delegation (ERC20Votes)
+```
+
+**Inputs → outputs**
+
+- In: `constructor args` (Solidity) DaoGovernanceToken(admin, initialSupply, cap); DaoGovernanceGovernor(IVotes token, TimelockController timelock, uint48 votingDelay, uint32 votingPeriod)
+- Out: `deployed contracts` (EVM); `events/errors` (ABI) see src/
+
+**Composes with**
+
+- [Blockchains/blockchainlab-compose](https://github.com/Blockchains/blockchainlab-compose): the composer that generated this repo
+- [Blockchains/forge-usd-priced-membership-nft](https://github.com/Blockchains/forge-usd-priced-membership-nft): pair: members NFT + governance token
+- [Blockchains/blockchainlab-sdk](https://github.com/Blockchains/blockchainlab-sdk): front end data (chains, RPC health, sanctions screening)
+- [Blockchains/blockchainlab-labs](https://github.com/Blockchains/blockchainlab-labs): L15 Timelock lab explains the pattern
+
+**Versioning & stability:** `reference`. Reference output of an automated composer; copied components are pinned to fork release tags (see NOTICE / component-map.json). Not audited. Treat as a starting point and review before deploying with value.
+<!-- blocks:end -->
+
 ## Licence
 MIT for the generated glue. All copied components are permissively licensed.
 

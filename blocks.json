@@ -1,0 +1,104 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Blockchains/.github/main/docs/blocks.schema.json",
+  "schema_version": "1.0",
+  "name": "forge-dao-governance-token",
+  "repo": "Blockchains/forge-dao-governance-token",
+  "summary": "Composed DAO governance kit: capped ERC-20 with EIP-2612 permit, ERC20Votes delegation and role-based minting (DaoGovernanceToken) plus an OpenZeppelin Governor with settings, simple counting, 4% quorum and a TimelockController (DaoGovernanceGovernor).",
+  "kind": [
+    "contracts"
+  ],
+  "stability": "reference",
+  "license": "MIT",
+  "entrypoints": [
+    {
+      "type": "solidity",
+      "name": "DaoGovernanceToken",
+      "ref": "src/DaoGovernanceToken.sol",
+      "install": "forge install Blockchains/forge-dao-governance-token"
+    },
+    {
+      "type": "solidity",
+      "name": "DaoGovernanceGovernor",
+      "ref": "src/DaoGovernanceGovernor.sol",
+      "install": "forge install Blockchains/forge-dao-governance-token"
+    },
+    {
+      "type": "file",
+      "name": "script/Deploy.s.sol",
+      "ref": "script/Deploy.s.sol",
+      "usage": "forge script script/Deploy.s.sol --rpc-url $SEPOLIA_RPC_URL --account <keystore> --broadcast"
+    },
+    {
+      "type": "file",
+      "name": "component-map.json, plan.json",
+      "ref": "component-map.json",
+      "usage": "provenance: capability → component → pinned fork commit"
+    }
+  ],
+  "inputs": [
+    {
+      "name": "constructor args",
+      "type": "Solidity",
+      "description": "DaoGovernanceToken(admin, initialSupply, cap); DaoGovernanceGovernor(IVotes token, TimelockController timelock, uint48 votingDelay, uint32 votingPeriod)"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "deployed contracts",
+      "type": "EVM"
+    },
+    {
+      "name": "events/errors",
+      "type": "ABI",
+      "description": "see src/"
+    }
+  ],
+  "deps": [
+    "foundry (solc 0.8.30)"
+  ],
+  "compatible_with": [
+    {
+      "repo": "Blockchains/blockchainlab-compose",
+      "how": "the composer that generated this repo"
+    },
+    {
+      "repo": "Blockchains/forge-usd-priced-membership-nft",
+      "how": "pair: members NFT + governance token"
+    },
+    {
+      "repo": "Blockchains/blockchainlab-sdk",
+      "how": "front end data (chains, RPC health, sanctions screening)"
+    },
+    {
+      "repo": "Blockchains/blockchainlab-labs",
+      "how": "L15 Timelock lab explains the pattern"
+    }
+  ],
+  "tests": {
+    "command": "forge test -vv",
+    "ci": ".github/workflows/ci.yml",
+    "network": true
+  },
+  "env": [
+    {
+      "name": "MAINNET_RPC_URL",
+      "required": false,
+      "purpose": "enables live-chain fork tests"
+    },
+    {
+      "name": "SEPOLIA_RPC_URL",
+      "required": false,
+      "purpose": "deploy target"
+    },
+    {
+      "name": "DEPLOYER_PRIVATE_KEY",
+      "required": false,
+      "purpose": "repo secret for the Deploy workflow only; never in files"
+    }
+  ],
+  "docs": {
+    "readme": "README.md",
+    "agents": "AGENTS.md",
+    "llms": "llms.txt"
+  }
+}
